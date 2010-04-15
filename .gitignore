@@ -1,0 +1,5 @@
+*.sw[op]
+*.py[oc]
+build/
+pyevent2/*.c
+pyevent2/*.so
