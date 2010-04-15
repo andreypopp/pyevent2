@@ -14,9 +14,10 @@ This module provides a mechanism to execute a function when a
 specific event on a file handle, file descriptor, or signal occurs,
 or after a given time has passed.
 
-The code is based on pyevent_.
+The code is based on pyevent_ and gevent_.
 
 .. _pyevent: http://code.google.com/p/pyevent/
+.. _gevent: http://gevent.org/
 """
 
 import sys
