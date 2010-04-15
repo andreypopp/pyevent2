@@ -1,5 +1,6 @@
 *.sw[op]
 *.py[oc]
+*.egg-info
 build/
 pyevent2/*.c
 pyevent2/*.so
