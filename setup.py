@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 from Cython.Distutils import build_ext
 from Cython.Distutils.extension import Extension
 
@@ -19,4 +19,5 @@ setup(name="pyevent2",
       packages=["pyevent2"],
       ext_modules=[core_ext],
       cmdclass= {"build_ext": build_ext},
+      test_suite="pyevent2",
       )
