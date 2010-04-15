@@ -158,12 +158,8 @@ cdef class Base:
 cdef class Event:
     """Event object with a user callback.
 
-    * :attr:`evtype` -- bitmask of EV_READ or EV_WRITE, or EV_SIGNAL
-    * :attr:`handle` -- a file handle, descriptor, or socket for EV_READ or
-      EV_WRITE; a signal number for EV_SIGNAL
-    * :attr:`callback` -- user callback with ``(event, evtype)`` prototype
-    * :attr:`arg` -- optional object, which will be made available as
-      :attr:`arg` property.
+    Callback is called as `callback(event, event_type, arg)`, where `event` is
+    current event instance and `event_type` is why event was happened.
     """
 
     cdef event *ev
