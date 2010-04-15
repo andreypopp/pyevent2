@@ -16,7 +16,7 @@ setup(name="pyevent2",
       author="Andrey Popp",
       author_email="8mayday@gmail.com",
       license="BSD",
-      packages=["pyevent"],
+      packages=["pyevent2"],
       ext_modules=[core_ext],
       cmdclass= {"build_ext": build_ext},
       )
