@@ -151,7 +151,7 @@ cdef class Base:
     def signal(self, *args, **kwargs):
         return SignalEvent(self, *args, **kwargs)
 
-    def active_event(self, *args, **kwargs):
+    def active(self, *args, **kwargs):
         return ActiveEvent(self, *args, **kwargs)
 
 
