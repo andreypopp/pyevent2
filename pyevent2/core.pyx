@@ -235,7 +235,7 @@ cdef class WriteEvent(Event):
 cdef class ReadWriteEvent(Event):
     """Create a new scheduled event with evtype=EV_READ|EV_WRITE"""
 
-    def __init__(self, Base, eb, int handle, callback, timeout=-1, arg=None):
+    def __init__(self, Base eb, int handle, callback, timeout=-1, arg=None):
         Event.__init__(self, eb, EV_READ|EV_WRITE, handle, callback, arg=arg)
         self.add(timeout)
 
