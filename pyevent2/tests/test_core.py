@@ -27,6 +27,7 @@ class TestReadEvent(TestBase):
         import socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.setblocking(0)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((self.HOST, self.PORT))
         sock.listen(1)
         self.base.read(sock.fileno(), self.accept, -1, sock)
@@ -76,6 +77,7 @@ class TestWriteEvent(TestBase):
         import socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.setblocking(0)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((self.HOST, self.PORT))
         sock.listen(1)
         self.base.read(sock.fileno(), self.accept, -1, sock)
