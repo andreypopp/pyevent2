@@ -71,8 +71,9 @@ cdef extern from "event.h":
         pass
 
     event_base* event_base_new()
-    int event_base_loop(event_base* eb, int flags) nogil
-    int event_base_dispatch(event_base* eb) nogil
+    void event_base_free(event_base *eb)
+    int event_base_loop(event_base *eb, int flags) nogil
+    int event_base_dispatch(event_base *eb) nogil
     char* event_base_get_method(event_base *eb)
 
     event* event_new(event_base* eb, int fd, short evtype,
@@ -96,9 +97,14 @@ cdef class Base:
 
     cdef event_base *eb
 
-    def __init__(self):
+    def __cinit__(self):
         """Initialize event base."""
         self.eb = event_base_new()
+
+    def __dealloc__(self):
+        if self.eb != NULL:
+            event_base_free(self.eb)
+        self.eb = NULL
 
     property method:
 
