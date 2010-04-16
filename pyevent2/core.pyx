@@ -261,6 +261,7 @@ cdef class ActiveEvent(Event):
 
     def __init__(self, Base eb, callback, arg=None):
         Event.__init__(self, eb, EV_TIMEOUT, -1, callback, arg=arg)
+        Py_INCREF(self)
         event_active(self.ev, EV_TIMEOUT, 1)
 
     def add(self, timeout=-1):
