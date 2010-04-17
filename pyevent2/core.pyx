@@ -288,3 +288,6 @@ cdef void __event_handler(int fd, short evtype, void *arg) with gil:
     finally:
         if not ev.pending:
             Py_DECREF(ev)
+
+
+include "evdns.pyx"
